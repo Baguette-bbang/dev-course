@@ -71,3 +71,62 @@ function setInfo(student: Student): void {
 }
 
 setInfo(nodeStd);
+
+// 리터럴
+const user : {name : string, age : number} = {
+    name : 'john',
+    age : 25
+}
+
+// any 타입
+let anyVal : any = 100;
+anyVal = true;
+
+// 유니온 타입
+type strOrNum =  number | string;
+let numStrVal : strOrNum = 100;
+numStrVal = '100';
+let item : number;
+
+function convertToString(val : strOrNum) : string{
+    if (typeof val === 'string'){
+        item = 0;
+    } else {
+        item = val;
+    }
+    return String(item)
+}
+
+function convertToNumber(val : strOrNum) : number{
+    return Number(val)
+}
+
+console.log(convertToString(numStrVal))
+console.log(convertToNumber(numStrVal))
+
+let numbers = [1,2,3,4,5]
+let numbers1 = new Array(1,2,3,4,5)
+let numbers2 = new Array([1,2,3,4,5])
+
+console.log(numbers)
+console.log(numbers1)
+console.log(numbers2)
+
+let fruits : string[] = ['apple', 'banana', 'orange'];
+for (let i = 0; i < numbers.length; i++){
+    console.log(numbers[i]);
+}
+for (let i = 0; i < fruits.length; i++){
+    console.log(fruits[i]);
+}
+
+// let mixedArr : string[]|number[] = ['apple', 1]
+let mixedArr1 : (string|number)[] = ['apple', 1]
+
+let greeting : [number, string, boolean] = [1, 'hello', true];
+greeting[0] = 2
+
+for (let index = 0; index < greeting.length; index++) {
+    const element = greeting[index];
+    console.log(element)
+}
